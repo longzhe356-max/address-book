@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  application:
+    name: address-book
+  datasource:
+    # 注意：H2 2.x 不允许 AUTO_SERVER=TRUE 与 DB_CLOSE_ON_EXIT=FALSE 同时出现
+    # （启动报 Feature not supported [50100-224]），单实例部署无需 AUTO_SERVER
+    url: jdbc:h2:file:./data/addressbook;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 12MB
+
+app:
+  excel:
+    max-rows: 5000
+    max-methods-per-type: 20
+
+logging:
+  level:
+    com.fzu.addressbook: INFO
