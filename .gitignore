@@ -1,0 +1,30 @@
+# ---------- Java / Maven ----------
+target/
+*.class
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+dependency-reduced-pom.xml
+
+# ---------- IDE ----------
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Runtime data (H2) ----------
+backend/data/*
+!backend/data/.gitkeep
+*.mv.db
+*.trace.db
+*.lock.db
+
+# ---------- Logs ----------
+logs/
+*.log
